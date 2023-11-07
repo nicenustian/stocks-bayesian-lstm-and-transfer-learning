@@ -55,9 +55,7 @@ def train(output_dir, ti, combined_model, ticker, xx, X_train, y_train, X_val, y
             nll = K.mean(nll)
             return nll
     
-    num_of_layers = 4
         
-    #model = get_ml_model(lstm_units, output_units, X_train.shape[1], features)
     model = LSTMNet(num_of_layers, lstm_units, output_units)
     model.summary(X_train.shape[1], features)
     
