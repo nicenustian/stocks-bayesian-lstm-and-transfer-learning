@@ -79,7 +79,7 @@ Trainable params: 1,218,480
 Non-trainable params: 0
 _________________________________________________________________
 
-# training for a combined model using sotcks data one by one<br>
+# Training for a combined model using sotcks data one by one<br>
 
 new/AMZN.csv<br>
 
@@ -98,7 +98,32 @@ Epoch 1/1000<br>
 32/32 [==============================] - ETA: 0s - loss: 0.7833  <br>
 Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model<br>
 32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381<br>
+Epoch 00127: val_loss did not improve from -1.96847
+32/32 [==============================] - 20s 619ms/step - loss: -2.0032 - val_loss: -1.8286
+ticker  MSFT 18.21367576519648 [min]
 
+# Now train each model again using combined model as a starting point. <br>
+new/AMZN.csv <br>
+
+Epoch 1/1000 <br>
+32/32 [==============================] - ETA: 0s - loss: 0.7902    <br>
+Epoch 00001: val_loss improved from inf to 0.47873, saving model to new/models/AMZN_model <br>
+32/32 [==============================] - 55s 1s/step - loss: 0.7902 - val_loss: 0.4787 <br>
+Epoch 00071: val_loss did not improve from -1.60603 <br>
+32/32 [==============================] - 8s 249ms/step - loss: -1.4368 - val_loss: -1.5653 <br>
+new/models/AMZN_model <br>
+input shape  (10, 120, 5) <br>
+
+predicting using model file new/models/AMZN_model <br>
+prediction file name  new/AMZN_pred.npy <br>
+ticker  AMZN 23.703207035859425 [min] <br>
+new/MSFT.csv <br>
+
+_________________________________________________________________ <br>
+Epoch 1/1000 <br>
+32/32 [==============================] - ETA: 0s - loss: 0.7749   <br>
+Epoch 00001: val_loss improved from inf to 0.59853, saving model to new/models/MSFT_model <br>
+32/32 [==============================] - 20s 417ms/step - loss: 0.7749 - val_loss: 0.5985 <br>
 
 ![losses](loss.jpg)
 ![predictions](pred.jpg)
