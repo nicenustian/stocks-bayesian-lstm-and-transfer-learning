@@ -128,6 +128,15 @@ Epoch 1/1000 <br>
 32/32 [==============================] - ETA: 0s - loss: 0.7749   <br>
 Epoch 00001: val_loss improved from inf to 0.59853, saving model to new/models/MSFT_model <br>
 32/32 [==============================] - 20s 417ms/step - loss: 0.7749 - val_loss: 0.5985 <br>
+Epoch 00053: val_loss did not improve from -1.56148 <br>
+32/32 [==============================] - 8s 252ms/step - loss: -1.6996 - val_loss: -1.5252 <br>
+new/models/MSFT_model <br>
+input shape  (10, 120, 5) <br>
+
+predicting using model file new/models/MSFT_model <br>
+prediction file name  new/MSFT_pred.npy <br>
+ticker  MSFT 7.256359632809957 [min] <br>
+total time [min] =  67.62601785262426 <br>
 
 ![losses](loss.jpg)
 ![predictions](pred.jpg)
