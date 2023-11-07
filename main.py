@@ -10,6 +10,7 @@ import argparse
 from datetime import datetime, timedelta
 from plot_data import plot_data
 from predict import predict
+import subprocess
 
 ###############################################################################
 
@@ -51,7 +52,6 @@ def main():
     batch_size = np.int32(args.batch_size)
     lr = np.float32(args.lr)
     validation_days = int(args.validation_days)
-    patience_epochs = 10
     
     batch_size = np.int32(args.batch_size)
     num_of_layers = np.int32(args.layers)
@@ -59,11 +59,12 @@ def main():
     output_time_steps = np.int32(args.output_time_steps)
     validation_date = (datetime.today() - timedelta(days=validation_days)).strftime("%Y-%m-%d")
     lstm_units = output_time_steps
+    patience_epochs = 10
 
 
     print('tickers = ', args.tickers)
     print('dates (start, end, validation)', start_date, end_date, validation_date)
-    print('epochs, lr, batch_size = ', epochs, lr, batch_size)
+    print('epochs, lr, batch_size layers = ', epochs, lr, batch_size, num_of_layers)
     print('time steps (input, output) = ', input_time_steps, output_time_steps)
     
     
@@ -77,7 +78,7 @@ def main():
     else:
         print(f"Directory '{output_dir}' already exists.")
 
-
+    
     # Download the data first in to the directory
     for ticker in tickers:
                 
@@ -94,7 +95,7 @@ def main():
     print()
     print('Train all stocks as one combined model but training in sequentially..')
         
-        
+    
     # first time run for a combined model for stocks    
     # read each stock and train model and save weights to combine model
     for ti, ticker in enumerate(tickers):
@@ -142,7 +143,7 @@ def main():
     
     plot_data(output_dir, input_time_steps, output_time_steps, 
                   validation_date, tickers, columns)
-      
+   
 ###############################################################################
 
 
