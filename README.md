@@ -1,19 +1,21 @@
-#Stock market predictions using baysian LSTM networks
+# Stock market predictions using baysian LSTM networks
 
-#Example Usage
+# Example Usage
 python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
+
+
 tickers =  ['AMZN', 'MSFT']
 dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07
 epochs, lr, batch_size layers =  1000 1e-04 32 4
 time steps (input, output) =  120 120
 Directory 'new/' created successfully.
-
+# Downloading the data fron yahoo finanace
 [*********************100%%**********************]  1 of 1 completed
 new/AMZN.csv
 [*********************100%%**********************]  1 of 1 completed
 new/MSFT.csv
 
-
+# information for training and validation samples
 Train all stocks as one combined model but training in sequentially..
 new/AMZN.csv
 train dataset <bound method DataFrame.info of             
@@ -30,6 +32,7 @@ test dataset <bound method DataFrame.info of
 [251 rows x 7 columns]>
 train/val samples  (1016, 120, 5) (1016, 120) (11, 120, 5) (11, 120)
 
+# Model summary
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -62,6 +65,9 @@ Total params: 1,218,480
 Trainable params: 1,218,480
 Non-trainable params: 0
 _________________________________________________________________
+
+# training for a model with combined weights using all sotcks one by one
+
 Epoch 1/1000
 32/32 [==============================] - ETA: 0s - loss: 0.7893  
 Epoch 00001: val_loss improved from inf to 0.48532, saving model to new/models/combined_model
