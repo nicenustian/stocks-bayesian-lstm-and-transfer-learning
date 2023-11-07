@@ -31,17 +31,16 @@ def predict(output_dir, ticker, num_of_layers, lstm_units, input_time_steps,
     xx_scaled = xx_scaled[:,-xx_scaled_segments*input_time_steps:,:]
     xx_scaled = xx_scaled.reshape((-1, input_time_steps, features))
     
-    print(xx_scaled.shape)
+    print('input shape ', xx_scaled.shape)
  
     ###########################################################################
     print()
-    print('predicting..')
+    print('predicting using model file', model_file_name)
     
     mean = np.full(xx.shape[1]+output_time_steps, np.nan)
     std = np.full(xx.shape[1]+output_time_steps, np.nan)
             
     mean_out, std_out = nll_predict(tf.convert_to_tensor(xx_scaled))
-    
     mean[-xx_scaled_segments*output_time_steps:] = tf.reshape(mean_out, [-1])
     std[-xx_scaled_segments*output_time_steps:] = tf.reshape(std_out, [-1])
     
@@ -55,7 +54,7 @@ def predict(output_dir, ticker, num_of_layers, lstm_units, input_time_steps,
     lower_1sigma = lower_1sigma * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
     
     
-    print(pred_file_name)
+    print('prediction file name ',pred_file_name)
     
     with open(pred_file_name, 'wb') as f:
             np.save(f, mean)
