@@ -1,11 +1,8 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import keras
-from keras.models import Sequential
 from keras.layers import Dense, Bidirectional, Dropout, LSTM
-from tensorflow.keras import Input, layers, Model
-
-
+from tensorflow.keras import Input, Model
 import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 import tensorflow_probability as tfp
@@ -26,7 +23,7 @@ class LSTMNet(keras.Model):
         self.num_of_layers = num_of_layers
         self.output_time_steps = output_time_steps
         
-        for li in range(num_of_layers):
+        for li in range(self.num_of_layers):
             
             if li==num_of_layers-1:
                 return_seq=False
