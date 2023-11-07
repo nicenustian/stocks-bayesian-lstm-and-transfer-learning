@@ -83,21 +83,21 @@ _________________________________________________________________
 
 new/AMZN.csv<br>
 
-Epoch 1/1000
-32/32 [==============================] - ETA: 0s - loss: 0.7893  
-Epoch 00001: val_loss improved from inf to 0.48532, saving model to new/models/combined_model
-32/32 [==============================] - 19s 376ms/step - loss: 0.7893 - val_loss: 0.4853
-Epoch 00138: val_loss did not improve from -1.94774
-32/32 [==============================] - 8s 247ms/step - loss: -1.7516 - val_loss: -1.9223
-ticker  AMZN 18.334947760899862 [min]
+Epoch 1/1000<br>
+32/32 [==============================] - ETA: 0s - loss: 0.7893  <br>
+Epoch 00001: val_loss improved from inf to 0.48532, saving model to new/models/combined_model<br>
+32/32 [==============================] - 19s 376ms/step - loss: 0.7893 - val_loss: 0.4853<br>
+Epoch 00138: val_loss did not improve from -1.94774<br>
+32/32 [==============================] - 8s 247ms/step - loss: -1.7516 - val_loss: -1.9223<br>
+ticker  AMZN 18.334947760899862 [min]<br>
 
 
-new/MSFT.csv
+new/MSFT.csv<br>
 
-Epoch 1/1000
-32/32 [==============================] - ETA: 0s - loss: 0.7833  
-Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model
-32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381
+Epoch 1/1000<br>
+32/32 [==============================] - ETA: 0s - loss: 0.7833  <br>
+Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model<br>
+32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381<br>
 
 
 ![losses](loss.jpg)
