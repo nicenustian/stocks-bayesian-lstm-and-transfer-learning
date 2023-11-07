@@ -153,7 +153,11 @@ ticker  MSFT 7.256359632809957 [min] <br>
 and the rest of the stocks<br>
 total time [min] =  67.62601785262426 <br>
 
-## Train/validation and Predictions (data points with no black curve) data for the next 120 days. <br>
+## Train/validation losses assuming normal distribution at the output
 
 ![losses](loss.jpg)
+
+
+## Predictions including the last 120 days a extrapolation from teh current trend <br>
+
 ![predictions](pred.jpg)
