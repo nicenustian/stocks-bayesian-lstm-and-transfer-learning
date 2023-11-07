@@ -17,7 +17,7 @@ def make_dataset(output_dir, validation_date, ticker, columns, previous_timestep
     
     print(data_file_name)
     df = pd.read_csv(data_file_name)  # Read the CSV file
-    print('dataframe', df.info)
+    ##print('dataframe', df.info)
     
     xx.append(df[columns].values)
     
