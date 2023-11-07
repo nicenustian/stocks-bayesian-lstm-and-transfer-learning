@@ -1,6 +1,8 @@
 # Stock market predictions using baysian LSTM networks
 
-# Example Usage
+The main idea behind this repo is to predict stock market up to several weeks in advance using daily trends. It combines differents stock from a one sector into one combined model. This serves as a starting point to train each stock indivudually. End results are far better that predictions from a single stock.
+
+# Example Usage all options
 
 usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_date END_DATE] [--validation_days VALIDATION_DAYS] [--epochs EPOCHS] [--layers LAYERS]
                [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS] [--batch_size BATCH_SIZE] [--lr LR] [--output_dir OUTPUT_DIR]
@@ -8,7 +10,7 @@ usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_d
 # output from the following command
 python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
 
-
+# stocks for data download from yahoo fianance
 tickers =  ['AMZN', 'MSFT']
 dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07
 epochs, lr, batch_size layers =  1000 1e-04 32 4
