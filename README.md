@@ -1,4 +1,4 @@
-# Stock market predictions using baysian LSTM networks
+# Stock market predictions using Bayesian LSTM networks
 
 The main idea behind this repo is to predict stock market up to several weeks in advance using daily trends. It combines differents stock from a one sector into one combined model. This serves as a starting point to train each stock indivudually. End results are far better that predictions from a single stock.
 
@@ -15,6 +15,7 @@ tickers =  ['AMZN', 'MSFT']
 dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07
 epochs, lr, batch_size layers =  1000 1e-04 32 4
 time steps (input, output) =  120 120
+
 Directory 'new/' created successfully.
 # Downloading the data fron yahoo finanace
 [*********************100%%**********************]  1 of 1 completed
