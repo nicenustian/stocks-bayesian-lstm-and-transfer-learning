@@ -88,7 +88,7 @@ Trainable params: 1,218,480<br>
 Non-trainable params: 0<br>
 _________________________________________________________________<br>
 
-## Training for a combined model using sotcks data one by one<br>
+## Training for a combined model using stocks data one by one<br>
 
 _________________________________________________________________<br>
 
