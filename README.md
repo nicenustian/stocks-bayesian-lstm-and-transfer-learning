@@ -1,2 +1,2 @@
-![loss.jpg]
-![pred.jpg]
+![losses](loss.jpg)
+![predictions](pred.jpg)
