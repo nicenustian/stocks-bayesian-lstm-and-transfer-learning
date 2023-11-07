@@ -25,6 +25,7 @@ Train all stocks as one combined model but training in sequentially..
 new/AMZN.csv
 train dataset <bound method DataFrame.info of             
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
+--------------------------------------------------------------------------------------------
 |0     |2018-11-08|   |87.750000   |89.199997   |86.255501   |87.745499   |87.745499  |130698000|
 |1004  |2022-11-04|   |91.489998   |92.440002   |88.040001   |90.980003   |90.980003  |129101300|
 
