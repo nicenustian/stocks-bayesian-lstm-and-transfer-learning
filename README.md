@@ -158,6 +158,6 @@ total time [min] =  67.62601785262426 <br>
 ![losses](loss.jpg)
 
 
-## Predictions including the last 120 days a extrapolation from teh current trend <br>
+## Predictions including the last 120 days a extrapolation from the current trend <br>
 
 ![predictions](pred.jpg)
