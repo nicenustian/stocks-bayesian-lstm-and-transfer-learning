@@ -105,7 +105,7 @@ def main():
         ticker_start_time = time.time()
         
         train(output_dir, ti, True, ticker, xx, X_train, y_train, X_val, y_val, scaler, 
-                              epochs, batch_size, lstm_units,
+                              epochs, batch_size, num_of_layers, lstm_units,
                               patience_epochs, lr)
         
         ticker_end_time = time.time()
