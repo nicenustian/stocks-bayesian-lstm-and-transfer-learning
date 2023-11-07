@@ -11,38 +11,39 @@ usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_d
 python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
 
 # stocks for data download from yahoo fianance
-tickers =  ['AMZN', 'MSFT']
-dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07
-epochs, lr, batch_size layers =  1000 1e-04 32 4
-time steps (input, output) =  120 120
+tickers =  ['AMZN', 'MSFT'] <br>
+dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07 <br>
+epochs, lr, batch_size layers =  1000 1e-04 32 4 <br>
+time steps (input, output) =  120 120 <br>
 
+<br>
 Directory 'new/' created successfully.
-# Downloading the data fron yahoo finanace
-[*********************100%%**********************]  1 of 1 completed
-new/AMZN.csv
-[*********************100%%**********************]  1 of 1 completed
-new/MSFT.csv
+# Downloading the data fron yahoo finanace<br>
+[*********************100%%**********************]  1 of 1 completed<br>
+new/AMZN.csv<br>
+[*********************100%%**********************]  1 of 1 completed<br>
+new/MSFT.csv<br>
 
 # information for training and validation samples
-Train all stocks as one combined model but training in sequentially..
-new/AMZN.csv
-train dataset <bound method DataFrame.info of
+Train all stocks as one combined model but training in sequentially..<br>
+new/AMZN.csv<br>
+train dataset <bound method DataFrame.info of<br>
 
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0     |2018-11-08|   87.750000   |89.199997   |86.255501   |87.745499   |87.745499  |130698000|
 |1004  |2022-11-04|   91.489998   |92.440002   |88.040001   |90.980003   |90.980003  |129101300|
 
-[1005 rows x 7 columns]>
-test dataset <bound method DataFrame.info of
+[1005 rows x 7 columns]><br>
+test dataset <bound method DataFrame.info of<br>
 
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | 1005 |  2022-11-07 |  91.949997 |   92.099998 |  89.040001 |   90.529999 |   90.529999 |   77495700 |
 | 1255 |  2023-11-06 |  138.759995|  140.729996 | 138.360001 | 139.740005 | 139.740005 |  44928800 |
 
-[251 rows x 7 columns]>
-train/val samples  (1016, 120, 5) (1016, 120) (11, 120, 5) (11, 120)
+[251 rows x 7 columns]><br>
+train/val samples  (1016, 120, 5) (1016, 120) (11, 120, 5) (11, 120)<br>
 
 # Model summary, using same architecture for each stock
 Model: "model"
@@ -78,9 +79,9 @@ Trainable params: 1,218,480
 Non-trainable params: 0
 _________________________________________________________________
 
-# training for a combined model using sotcks data one by one
+# training for a combined model using sotcks data one by one<br>
 
-new/AMZN.csv
+new/AMZN.csv<br>
 
 Epoch 1/1000
 32/32 [==============================] - ETA: 0s - loss: 0.7893  
