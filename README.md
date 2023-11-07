@@ -1,4 +1,4 @@
-### stock-market-predictions-with-bayesian-lstm
+# stock-market-predictions-with-bayesian-lstm
 Predict the trends for your favourite stocks using Bayesian LSTM neural network. THe idea is to make a combined model with several stocks in a particular sector and finally get predictions for each one individually.
 
 usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_date END_DATE] [--validation_days VALIDATION_DAYS] [--epochs EPOCHS] [--layers LAYERS] [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS]
