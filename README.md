@@ -1,6 +1,11 @@
 # Stock market predictions using baysian LSTM networks
 
 # Example Usage
+
+usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_date END_DATE] [--validation_days VALIDATION_DAYS] [--epochs EPOCHS] [--layers LAYERS]
+               [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS] [--batch_size BATCH_SIZE] [--lr LR] [--output_dir OUTPUT_DIR]
+
+# output from the following command
 python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
 
 
