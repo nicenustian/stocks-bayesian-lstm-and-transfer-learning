@@ -23,15 +23,16 @@ new/MSFT.csv
 # information for training and validation samples
 Train all stocks as one combined model but training in sequentially..
 new/AMZN.csv
-train dataset <bound method DataFrame.info of             
+train dataset <bound method DataFrame.info of
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
---------------------------------------------------------------------------------------------
-|0     |2018-11-08|   |87.750000   |89.199997   |86.255501   |87.745499   |87.745499  |130698000|
-|1004  |2022-11-04|   |91.489998   |92.440002   |88.040001   |90.980003   |90.980003  |129101300|
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0     |2018-11-08|   87.750000   |89.199997   |86.255501   |87.745499   |87.745499  |130698000|
+|1004  |2022-11-04|   91.489998   |92.440002   |88.040001   |90.980003   |90.980003  |129101300|
 
 [1005 rows x 7 columns]>
 test dataset <bound method DataFrame.info of
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 1005  2022-11-07   91.949997   92.099998   89.040001   90.529999   90.529999   77495700
 1255  2023-11-06  138.759995  140.729996  138.360001  139.740005  139.740005   44928800
 
