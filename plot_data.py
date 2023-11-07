@@ -69,9 +69,7 @@ def plot_data(output_dir, input_time_steps, output_time_steps,
     ax[0].set_ylabel('Loss')
     ax[0].legend(loc='upper center', fontsize=12, handlelength=.5, 
                  bbox_to_anchor=(0.5, 1.3), ncol=8, fancybox=True)
-    
-    fig.savefig(output_dir+'loss'+'.pdf', format='pdf', dpi=90, bbox_inches = 'tight')
-    fig2.savefig(output_dir+'pred'+'.pdf', format='pdf', dpi=90, bbox_inches = 'tight')
+                
+    fig.savefig(output_dir+'loss'+'.jpg', format='jpg', dpi=300, bbox_inches = 'tight')
+    fig2.savefig(output_dir+'pred'+'.jpg', format='jpg', dpi=300, bbox_inches = 'tight')
 
-    
-    
