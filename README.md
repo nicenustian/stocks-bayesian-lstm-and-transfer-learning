@@ -77,11 +77,11 @@ _________________________________________________________________
  dist (DistributionLambda)   ((None, 120),             0         
                               (None, 120))                       
                                                                  
-=================================================================
-Total params: 1,218,480
-Trainable params: 1,218,480
-Non-trainable params: 0
-_________________________________________________________________
+=================================================================<br>
+Total params: 1,218,480<br>
+Trainable params: 1,218,480<br>
+Non-trainable params: 0<br>
+_________________________________________________________________<br>
 
 ## Training for a combined model using sotcks data one by one<br>
 
@@ -102,9 +102,9 @@ Epoch 1/1000<br>
 32/32 [==============================] - ETA: 0s - loss: 0.7833  <br>
 Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model<br>
 32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381<br>
-Epoch 00127: val_loss did not improve from -1.96847
-32/32 [==============================] - 20s 619ms/step - loss: -2.0032 - val_loss: -1.8286
-ticker  MSFT 18.21367576519648 [min]
+Epoch 00127: val_loss did not improve from -1.96847<br>
+32/32 [==============================] - 20s 619ms/step - loss: -2.0032 - val_loss: -1.8286<br>
+ticker  MSFT 18.21367576519648 [min]<br>
 
 ## Now train each model again using combined model as a starting point. <br>
 new/AMZN.csv <br>
