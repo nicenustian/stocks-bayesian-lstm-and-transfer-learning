@@ -4,7 +4,7 @@ Predict the trends for your favourite stocks using Bayesian LSTM neural network.
 usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_date END_DATE] [--validation_days VALIDATION_DAYS] [--epochs EPOCHS] [--layers LAYERS] [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS]
                [--batch_size BATCH_SIZE] [--lr LR] [--output_dir OUTPUT_DIR]
 
-## Example for usage:
+# Example for usage:
 
 
 main.py --output_dir new --tickers 'MSFT' 'AAPL' 'AMZN' --validation_days 365 --layers 2 tickers =  ['MSFT', 'AAPL', 'AMZN']
