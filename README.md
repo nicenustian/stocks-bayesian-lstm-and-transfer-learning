@@ -11,10 +11,10 @@ The main idea behind this repo is to predict stock market up to several weeks in
 usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_date END_DATE] [--validation_days VALIDATION_DAYS] [--epochs EPOCHS] [--layers LAYERS]
                [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS] [--batch_size BATCH_SIZE] [--lr LR] [--output_dir OUTPUT_DIR]
 
-# Exmaple output from the following command
+# Example output from the following command
 python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
 
-## Stocks for data download from yahoo fianance
+## Data download from yahoo fianance
 tickers =  ['AMZN', 'MSFT'] <br>
 dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07 <br>
 epochs, lr, batch_size layers =  1000 1e-04 32 4 <br>
