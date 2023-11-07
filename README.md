@@ -12,21 +12,26 @@ usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_d
                [--input_time_steps INPUT_TIME_STEPS] [--output_time_steps OUTPUT_TIME_STEPS] [--batch_size BATCH_SIZE] [--lr LR] [--output_dir OUTPUT_DIR]
 
 # Example output from the following command
-python main.py --tickers 'AMZN' 'MSFT' --epochs 1000 --output_dir new
+python main.py --output_dir tech_stocks --tickers 'MSFT' 'AAPL' 'AMZN' 'GOOGL' 'META' <br>
 
-## Data download from yahoo fianance
-tickers =  ['AMZN', 'MSFT'] <br>
+# Output..
+tickers =  ['MSFT', 'AAPL', 'AMZN', 'GOOGL', 'META'] <br>
 dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07 <br>
 epochs, lr, batch_size layers =  1000 1e-04 32 4 <br>
 time steps (input, output) =  120 120 <br>
+Directory 'tech_stocks/' created successfully. <br>
+[*********************100%%**********************]  1 of 1 completed <br>
+tech_stocks/MSFT.csv <br>
+[*********************100%%**********************]  1 of 1 completed <br>
+tech_stocks/AAPL.csv <br>
+[*********************100%%**********************]  1 of 1 completed <br>
+tech_stocks/AMZN.csv <br>
+[*********************100%%**********************]  1 of 1 completed <br>
+tech_stocks/GOOGL.csv <br>
+[*********************100%%**********************]  1 of 1 completed <br>
+tech_stocks/META.csv <br>
 
-<br>
-Directory 'new/' created successfully.
-# Downloading the data fron yahoo finanace<br>
-[*********************100%%**********************]  1 of 1 completed<br>
-new/AMZN.csv<br>
-[*********************100%%**********************]  1 of 1 completed<br>
-new/MSFT.csv<br>
+
 
 ## Training and validation samples
 Train all stocks as one combined model but training in sequentially..<br>
@@ -85,60 +90,70 @@ _________________________________________________________________<br>
 
 ## Training for a combined model using sotcks data one by one<br>
 
-new/AMZN.csv<br>
+_________________________________________________________________<br>
 
-Epoch 1/1000<br>
-32/32 [==============================] - ETA: 0s - loss: 0.7893  <br>
-Epoch 00001: val_loss improved from inf to 0.48532, saving model to new/models/combined_model<br>
-32/32 [==============================] - 19s 376ms/step - loss: 0.7893 - val_loss: 0.4853<br>
-Epoch 00138: val_loss did not improve from -1.94774<br>
-32/32 [==============================] - 8s 247ms/step - loss: -1.7516 - val_loss: -1.9223<br>
-ticker  AMZN 18.334947760899862 [min]<br>
+new/AMZN.csv<br>
+_________________________________________________________________<br>
+Epoch 1/1000
+32/32 [==============================] - ETA: 0s - loss: 0.7739  
+Epoch 00001: val_loss improved from inf to 0.44102, saving model to tech_stocks/models/combined_model
+32/32 [==============================] - 20s 408ms/step - loss: 0.7739 - val_loss: 0.4410
+..........<br>
+Epoch 101/1000<br>
+32/32 [==============================] - ETA: 0s - loss: -1.5346<br>
+Epoch 00101: val_loss did not improve from -1.80982<br>
+32/32 [==============================] - 8s 255ms/step - loss: -1.5346 - val_loss: -1.6621<br>
+ticker  AMZN 13.837315817674002 [min]<br>
+
+_________________________________________________________________<br>
 
 
 new/MSFT.csv<br>
+_________________________________________________________________<br>
 
 Epoch 1/1000<br>
-32/32 [==============================] - ETA: 0s - loss: 0.7833  <br>
-Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model<br>
-32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381<br>
-Epoch 00127: val_loss did not improve from -1.96847<br>
-32/32 [==============================] - 20s 619ms/step - loss: -2.0032 - val_loss: -1.8286<br>
-ticker  MSFT 18.21367576519648 [min]<br>
+32/32 [==============================] - ETA: 0s - loss: 0.7634  <br>
+Epoch 00001: val_loss improved from inf to 0.55485, saving model to tech_stocks/models/combined_model<br>
+32/32 [==============================] - 19s 377ms/step - loss: 0.7634 - val_loss: 0.5549<br>
+.........<br>
+Epoch 66/1000<br>
+32/32 [==============================] - ETA: 0s - loss: -1.7582<br>
+Epoch 00066: val_loss did not improve from -1.74426<br>
+32/32 [==============================] - 8s 247ms/step - loss: -1.7582 - val_loss: -1.6977<br>
+ticker  MSFT 8.743007981777192 [min]<br>
+
+runs rest of the stocks....<br>
 
 ## Now train each model again using combined model as a starting point. <br>
-new/AMZN.csv <br>
+_________________________________________________________________.<br>
+Epoch 1/1000.<br>
+32/32 [==============================] - ETA: 0s - loss: 0.7858  .<br>
+Epoch 00001: val_loss improved from inf to 0.61471, saving model to tech_stocks/models/AAPL_model.<br>
+32/32 [==============================] - 21s 447ms/step - loss: 0.7858 - val_loss: 0.6147.<br>
+...........<br>
+Epoch 126/1000.<br>
+32/32 [==============================] - ETA: 0s - loss: -1.9969.<br>
+Epoch 00126: val_loss did not improve from -1.90743.<br>
+32/32 [==============================] - 8s 249ms/step - loss: -1.9969 - val_loss: -1.8522.<br>
+tech_stocks/models/AAPL_model.<br>
 
-Epoch 1/1000 <br>
-32/32 [==============================] - ETA: 0s - loss: 0.7902    <br>
-Epoch 00001: val_loss improved from inf to 0.47873, saving model to new/models/AMZN_model <br>
-32/32 [==============================] - 55s 1s/step - loss: 0.7902 - val_loss: 0.4787 <br>
-Epoch 00071: val_loss did not improve from -1.60603 <br>
-32/32 [==============================] - 8s 249ms/step - loss: -1.4368 - val_loss: -1.5653 <br>
-new/models/AMZN_model <br>
-input shape  (10, 120, 5) <br>
 
-predicting using model file new/models/AMZN_model <br>
-prediction file name  new/AMZN_pred.npy <br>
-ticker  AMZN 23.703207035859425 [min] <br>
-new/MSFT.csv <br>
+...........................<br>
 
-_________________________________________________________________ <br>
-Epoch 1/1000 <br>
-32/32 [==============================] - ETA: 0s - loss: 0.7749   <br>
-Epoch 00001: val_loss improved from inf to 0.59853, saving model to new/models/MSFT_model <br>
-32/32 [==============================] - 20s 417ms/step - loss: 0.7749 - val_loss: 0.5985 <br>
-Epoch 00053: val_loss did not improve from -1.56148 <br>
-32/32 [==============================] - 8s 252ms/step - loss: -1.6996 - val_loss: -1.5252 <br>
+and the rest of the stocks<br>
+
+
 new/models/MSFT_model <br>
 input shape  (10, 120, 5) <br>
 
 predicting using model file new/models/MSFT_model <br>
 prediction file name  new/MSFT_pred.npy <br>
 ticker  MSFT 7.256359632809957 [min] <br>
+...........................<br>
+and the rest of the stocks<br>
 total time [min] =  67.62601785262426 <br>
 
-## Predictions for the next 120 days. <br>
+## Train/validation and Predictions (data points with no black curve) data for the next 120 days. <br>
 
 ![losses](loss.jpg)
 ![predictions](pred.jpg)
