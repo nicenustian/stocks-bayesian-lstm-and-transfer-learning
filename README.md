@@ -43,7 +43,7 @@ test dataset <bound method DataFrame.info of
 [251 rows x 7 columns]>
 train/val samples  (1016, 120, 5) (1016, 120) (11, 120, 5) (11, 120)
 
-# Model summary
+# Model summary, using same architecture for each stock
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -77,13 +77,25 @@ Trainable params: 1,218,480
 Non-trainable params: 0
 _________________________________________________________________
 
-# training for a model with combined weights using all sotcks one by one
+# training for a combined model using sotcks data one by one
+
+new/AMZN.csv
 
 Epoch 1/1000
 32/32 [==============================] - ETA: 0s - loss: 0.7893  
 Epoch 00001: val_loss improved from inf to 0.48532, saving model to new/models/combined_model
 32/32 [==============================] - 19s 376ms/step - loss: 0.7893 - val_loss: 0.4853
+Epoch 00138: val_loss did not improve from -1.94774
+32/32 [==============================] - 8s 247ms/step - loss: -1.7516 - val_loss: -1.9223
+ticker  AMZN 18.334947760899862 [min]
 
+
+new/MSFT.csv
+
+Epoch 1/1000
+32/32 [==============================] - ETA: 0s - loss: 0.7833  
+Epoch 00001: val_loss improved from inf to 0.63809, saving model to new/models/combined_model
+32/32 [==============================] - 19s 393ms/step - loss: 0.7833 - val_loss: 0.6381
 
 
 ![losses](loss.jpg)
