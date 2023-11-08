@@ -40,9 +40,9 @@ tech_stocks/META.csv
 
 ## Training and validation samples
 ```command
-Train all stocks as one combined model but training in sequentially..<br>
-new/AMZN.csv<br>
-train dataset <bound method DataFrame.info of<br>
+Train all stocks as one combined model but training in sequentially..
+new/AMZN.csv
+train dataset <bound method DataFrame.info of
 ```
 
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
@@ -90,76 +90,76 @@ _________________________________________________________________
  dist (DistributionLambda)   ((None, 120),             0         
                               (None, 120))                       
                                                                  
-=================================================================<br>
+=================================================================
 Total params: 1,218,480<br>
 Trainable params: 1,218,480<br>
 Non-trainable params: 0<br>
-_________________________________________________________________<br>
+_________________________________________________________________
 
-## Training for a combined model using stocks data one by one<br>
+## Training for a combined model using stocks data one by one
 
-_________________________________________________________________<br>
+_________________________________________________________________
 
-new/AMZN.csv<br>
-_________________________________________________________________<br>
+new/AMZN.csv
+_________________________________________________________________
 Epoch 1/1000
 32/32 [==============================] - ETA: 0s - loss: 0.7739  
 Epoch 00001: val_loss improved from inf to 0.44102, saving model to tech_stocks/models/combined_model
 32/32 [==============================] - 20s 408ms/step - loss: 0.7739 - val_loss: 0.4410
-..........<br>
-Epoch 101/1000<br>
+..........
+Epoch 101/1000
 32/32 [==============================] - ETA: 0s - loss: -1.5346<br>
 Epoch 00101: val_loss did not improve from -1.80982<br>
 32/32 [==============================] - 8s 255ms/step - loss: -1.5346 - val_loss: -1.6621<br>
-ticker  AMZN 13.837315817674002 [min]<br>
+ticker  AMZN 13.837315817674002 [min]
 
-_________________________________________________________________<br>
+_________________________________________________________________
 
 
-new/MSFT.csv<br>
-_________________________________________________________________<br>
+new/MSFT.csv
+_________________________________________________________________
 
-Epoch 1/1000<br>
-32/32 [==============================] - ETA: 0s - loss: 0.7634  <br>
-Epoch 00001: val_loss improved from inf to 0.55485, saving model to tech_stocks/models/combined_model<br>
-32/32 [==============================] - 19s 377ms/step - loss: 0.7634 - val_loss: 0.5549<br>
-.........<br>
-Epoch 66/1000<br>
-32/32 [==============================] - ETA: 0s - loss: -1.7582<br>
-Epoch 00066: val_loss did not improve from -1.74426<br>
-32/32 [==============================] - 8s 247ms/step - loss: -1.7582 - val_loss: -1.6977<br>
-ticker  MSFT 8.743007981777192 [min]<br>
+Epoch 1/1000
+32/32 [==============================] - ETA: 0s - loss: 0.7634
+Epoch 00001: val_loss improved from inf to 0.55485, saving model to tech_stocks/models/combined_model
+32/32 [==============================] - 19s 377ms/step - loss: 0.7634 - val_loss: 0.5549
+.........
+Epoch 66/1000
+32/32 [==============================] - ETA: 0s - loss: -1.7582
+Epoch 00066: val_loss did not improve from -1.74426
+32/32 [==============================] - 8s 247ms/step - loss: -1.7582 - val_loss: -1.6977
+ticker  MSFT 8.743007981777192 [min]
 
-runs rest of the stocks....<br>
+runs rest of the stocks....
 
-## Now train each model again using combined model as a starting point. <br>
-_________________________________________________________________.<br>
+## Now train each model again using combined model as a starting point.
+_________________________________________________________________
 Epoch 1/1000.<br>
-32/32 [==============================] - ETA: 0s - loss: 0.7858  .<br>
-Epoch 00001: val_loss improved from inf to 0.61471, saving model to tech_stocks/models/AAPL_model.<br>
-32/32 [==============================] - 21s 447ms/step - loss: 0.7858 - val_loss: 0.6147.<br>
-...........<br>
-Epoch 126/1000.<br>
-32/32 [==============================] - ETA: 0s - loss: -1.9969.<br>
-Epoch 00126: val_loss did not improve from -1.90743.<br>
-32/32 [==============================] - 8s 249ms/step - loss: -1.9969 - val_loss: -1.8522.<br>
-tech_stocks/models/AAPL_model.<br>
+32/32 [==============================] - ETA: 0s - loss: 0.7858 
+Epoch 00001: val_loss improved from inf to 0.61471, saving model to tech_stocks/models/AAPL_model
+32/32 [==============================] - 21s 447ms/step - loss: 0.7858 - val_loss: 0.6147
+...........
+Epoch 126/1000
+32/32 [==============================] - ETA: 0s - loss: -1.9969
+Epoch 00126: val_loss did not improve from -1.90743
+32/32 [==============================] - 8s 249ms/step - loss: -1.9969 - val_loss: -1.8522
+tech_stocks/models/AAPL_model
 
 
-...........................<br>
+...........................
 
-and the rest of the stocks<br>
+and the rest of the stocks
 
 
-new/models/MSFT_model <br>
-input shape  (10, 120, 5) <br>
+new/models/MSFT_model
+input shape  (10, 120, 5)
 
-predicting using model file new/models/MSFT_model <br>
-prediction file name  new/MSFT_pred.npy <br>
-ticker  MSFT 7.256359632809957 [min] <br>
-...........................<br>
-and the rest of the stocks<br>
-total time [min] =  67.62601785262426 <br>
+predicting using model file new/models/MSFT_model
+prediction file name  new/MSFT_pred.npy
+ticker  MSFT 7.256359632809957 [min]
+...........................
+and the rest of the stocks
+total time [min] =  67.62601785262426
 ```
 
 ## Train/validation losses assuming normal distribution at the output
@@ -167,6 +167,6 @@ total time [min] =  67.62601785262426 <br>
 ![losses](loss.jpg)
 
 
-## Predictions including the last 120 days a extrapolation from the current trend <br>
+## Predictions including the last 120 days a extrapolation from the current trend
 
 ![predictions](pred.jpg)
