@@ -15,26 +15,26 @@ usage: main.py [-h] [--tickers [TICKERS ...]] [--start_date START_DATE] [--end_d
 
 # Example output from the following command
 ```command
-python main.py --output_dir tech_stocks --tickers 'MSFT' 'AAPL' 'AMZN' 'GOOGL' 'META' <br>
+python main.py --output_dir tech_stocks --tickers 'MSFT' 'AAPL' 'AMZN' 'GOOGL' 'META'
 ```
 
 # Output..
 ```command
-tickers =  ['MSFT', 'AAPL', 'AMZN', 'GOOGL', 'META'] <br>
-dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07 <br>
-epochs, lr, batch_size layers =  1000 1e-04 32 4 <br>
-time steps (input, output) =  120 120 <br>
-Directory 'tech_stocks/' created successfully. <br>
-[*********************100%%**********************]  1 of 1 completed <br>
-tech_stocks/MSFT.csv <br>
-[*********************100%%**********************]  1 of 1 completed <br>
-tech_stocks/AAPL.csv <br>
-[*********************100%%**********************]  1 of 1 completed <br>
-tech_stocks/AMZN.csv <br>
-[*********************100%%**********************]  1 of 1 completed <br>
-tech_stocks/GOOGL.csv <br>
-[*********************100%%**********************]  1 of 1 completed <br>
-tech_stocks/META.csv <br>
+tickers =  ['MSFT', 'AAPL', 'AMZN', 'GOOGL', 'META']
+dates (start, end, validation) 2018-11-08 2023-11-07 2022-11-07
+epochs, lr, batch_size layers =  1000 1e-04 32 4
+time steps (input, output) =  120 120
+Directory 'tech_stocks/' created successfully. 
+[*********************100%%**********************]  1 of 1 completed
+tech_stocks/MSFT.csv
+[*********************100%%**********************]  1 of 1 completed
+tech_stocks/AAPL.csv
+[*********************100%%**********************]  1 of 1 completed
+tech_stocks/AMZN.csv
+[*********************100%%**********************]  1 of 1 completed
+tech_stocks/GOOGL.csv
+[*********************100%%**********************]  1 of 1 completed
+tech_stocks/META.csv
 ```
 
 
