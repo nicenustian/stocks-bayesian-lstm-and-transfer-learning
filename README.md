@@ -91,9 +91,9 @@ _________________________________________________________________
                               (None, 120))                       
                                                                  
 =================================================================
-Total params: 1,218,480<br>
-Trainable params: 1,218,480<br>
-Non-trainable params: 0<br>
+Total params: 1,218,480
+Trainable params: 1,218,480
+Non-trainable params: 0
 _________________________________________________________________
 
 ## Training for a combined model using stocks data one by one
