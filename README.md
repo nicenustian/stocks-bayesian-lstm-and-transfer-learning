@@ -43,6 +43,7 @@ tech_stocks/META.csv <br>
 Train all stocks as one combined model but training in sequentially..<br>
 new/AMZN.csv<br>
 train dataset <bound method DataFrame.info of<br>
+```
 
 | index |Date   |     Open    |    High     |    Low     |  Close  | Adj Close |     Volume|
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -60,6 +61,7 @@ test dataset <bound method DataFrame.info of<br>
 [251 rows x 7 columns]><br>
 train/val samples  (1016, 120, 5) (1016, 120) (11, 120, 5) (11, 120)<br>
 
+```command
 ## Model summary, using same architecture for each stock
 Model: "model"
 _________________________________________________________________
