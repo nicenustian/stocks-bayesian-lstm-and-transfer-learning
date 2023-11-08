@@ -108,9 +108,9 @@ Epoch 00001: val_loss improved from inf to 0.44102, saving model to tech_stocks/
 32/32 [==============================] - 20s 408ms/step - loss: 0.7739 - val_loss: 0.4410
 ..........
 Epoch 101/1000
-32/32 [==============================] - ETA: 0s - loss: -1.5346<br>
-Epoch 00101: val_loss did not improve from -1.80982<br>
-32/32 [==============================] - 8s 255ms/step - loss: -1.5346 - val_loss: -1.6621<br>
+32/32 [==============================] - ETA: 0s - loss: -1.5346
+Epoch 00101: val_loss did not improve from -1.80982
+32/32 [==============================] - 8s 255ms/step - loss: -1.5346 - val_loss: -1.6621
 ticker  AMZN 13.837315817674002 [min]
 
 _________________________________________________________________
