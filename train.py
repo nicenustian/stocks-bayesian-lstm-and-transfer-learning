@@ -22,12 +22,12 @@ def train(output_dir, ti, combined_model, ticker, xx, X_train, y_train, X_val, y
     features = X_train.shape[2]
     output_units = y_train.shape[1]
     
-    combined_model_file_name = output_dir+'models/'+'combined_model'
+    combined_model_file_name = output_dir+'models/'+'combined_model/'
     
     if combined_model:
-        model_file_name = output_dir+'models/'+'combined_model'
+        model_file_name = output_dir+'models/'+'combined_model/'
     else:
-        model_file_name = output_dir+'models/'+ticker+'_model'
+        model_file_name = output_dir+'models/'+ticker+'_model/'
     
     history_file_name = output_dir+ticker+'_hist.json'
     
@@ -65,7 +65,9 @@ def train(output_dir, ti, combined_model, ticker, xx, X_train, y_train, X_val, y
     
     # check if combined model exists load
     if os.path.exists(combined_model_file_name):
-        print('pre loading weights..', combined_model_file_name)
+        print()
+        print('Loading weights from previous model..', combined_model_file_name)
+        print()
         model.load_weights(combined_model_file_name)
         
 
