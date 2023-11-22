@@ -4,6 +4,7 @@ import tensorflow as tf
 from plot_data import plot_data
 import matplotlib
 import matplotlib.pyplot as plt
+import sys
             
 font = {'family' : 'serif', 'weight' : 'normal','size' : 28}
 matplotlib.rc('font', **font)
@@ -39,8 +40,13 @@ def predict(output_dir, ticker, validation_date, num_of_layers, lstm_units, inpu
     upper_1sigma = np.full(xx.shape[1]+output_time_steps, np.nan)
     lower_1sigma = np.full(xx.shape[1]+output_time_steps, np.nan)
     
+    total_iterations =  xx.shape[1] - input_time_steps
+    
     for i in range(input_time_steps, xx.shape[1]):
-            
+        
+        # Simulate some work being done
+        #time.sleep(0.1)
+                
         mean_out, std_out = nll_predict(tf.convert_to_tensor(xx_scaled[:,i-input_time_steps:i,:]))
         upper_1sigma_out = mean_out + std_out
         lower_1sigma_out = mean_out - std_out
@@ -64,6 +70,15 @@ def predict(output_dir, ticker, validation_date, num_of_layers, lstm_units, inpu
             fig.savefig(output_dir+'pred_'+ticker+'_timestep'+str(i)+'.png', 
                         format='png', dpi=300, bbox_inches = 'tight')
             plt.close(fig)
+                
+        # Calculate the progress percentage
+        progress = np.int32((i - input_time_steps) / total_iterations * 100)
+                    
+        # Print the progress bar
+        sys.stdout.write("\rProgress: [{}{}] {:}%".format(
+                "=" * progress, " " * 0, progress)
+            )
+            #sys.stdout.flush()
     
     print('prediction file name ',pred_file_name)
     
