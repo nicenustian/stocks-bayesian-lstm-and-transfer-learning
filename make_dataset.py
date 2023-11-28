@@ -3,7 +3,8 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 
 
-def make_dataset(output_dir, validation_date, ticker, columns, previous_timesteps=120, output_timesteps=120):
+def make_dataset(output_dir, validation_date, ticker, columns, 
+                 previous_timesteps=120, output_timesteps=120):
 
     data_file_name = output_dir+ticker+".csv"
 
@@ -17,9 +18,7 @@ def make_dataset(output_dir, validation_date, ticker, columns, previous_timestep
     
    
     print(data_file_name)
-    df = pd.read_csv(data_file_name)  # Read the CSV file
-    ##print('dataframe', df.info)
-    
+    df = pd.read_csv(data_file_name)  # Read the CSV file    
     xx.append(df[columns].values)
     
     # Select data for the last year
@@ -58,7 +57,9 @@ def make_dataset(output_dir, validation_date, ticker, columns, previous_timestep
             X_val.append(data_val[si, i-previous_timesteps:i])
             y_val.append(data_val[si, i:i+output_timesteps, 0])
     
+    
     ###############################################################################
+    
     
     X_train = np.array(X_train)
     y_train = np.array(y_train)
@@ -66,9 +67,11 @@ def make_dataset(output_dir, validation_date, ticker, columns, previous_timestep
     X_val = np.array(X_val)
     y_val = np.array(y_val)
     
-    print('train/val samples ',X_train.shape, y_train.shape, X_val.shape, y_val.shape)
+    print('train/val samples ',X_train.shape, y_train.shape, 
+          X_val.shape, y_val.shape)
     
     df  = df[['Close', 'Date']]
-    df['Date'] = pd.to_datetime(df['Date'])  # Convert 'Date' column to datetime (optional but recommended)
+    # Convert 'Date' column to datetime (optional but recommended)
+    df['Date'] = pd.to_datetime(df['Date'])
     
     return xx, df, scaler, X_train, y_train, X_val, y_val
