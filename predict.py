@@ -1,16 +1,9 @@
 from LSTMNet import LSTMNet
 import numpy as np
 import tensorflow as tf
-from plot_data import plot_data
-import matplotlib
-import matplotlib.pyplot as plt
-import sys
-            
-font = {'family' : 'serif', 'weight' : 'normal','size' : 28}
-matplotlib.rc('font', **font)
 
 def predict(output_dir, ticker, validation_date, num_of_layers, lstm_units, input_time_steps, 
-            output_time_steps, df, xx, scaler, features, save_series=False):
+            output_time_steps, df, xx, scaler, features):
         
     @tf.function
     def nll_predict(x):       
@@ -19,6 +12,8 @@ def predict(output_dir, ticker, validation_date, num_of_layers, lstm_units, inpu
     
     
     pred_file_name = output_dir+ticker+'_pred.npy'
+    pred_sequence_file_name = output_dir+ticker+'_pred_sequence.npy'
+
     model_file_name = output_dir+'models/'+ticker+'_model/'
     model = LSTMNet(num_of_layers, lstm_units, output_time_steps)
 
@@ -36,53 +31,49 @@ def predict(output_dir, ticker, validation_date, num_of_layers, lstm_units, inpu
     print()
     print('predicting using model file', model_file_name)
     
-    mean = np.full(xx.shape[1]+output_time_steps, np.nan)
-    upper_1sigma = np.full(xx.shape[1]+output_time_steps, np.nan)
-    lower_1sigma = np.full(xx.shape[1]+output_time_steps, np.nan)
-    
-    total_iterations =  xx.shape[1] - input_time_steps
-    
-    for i in range(input_time_steps, xx.shape[1]):
-        
-        # Simulate some work being done
-        #time.sleep(0.1)
-                
-        mean_out, std_out = nll_predict(tf.convert_to_tensor(xx_scaled[:,i-input_time_steps:i,:]))
-        upper_1sigma_out = mean_out + std_out
-        lower_1sigma_out = mean_out - std_out
-        
-        mean_out = mean_out * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
-        upper_1sigma_out = upper_1sigma_out * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
-        lower_1sigma_out = lower_1sigma_out * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
-        
-        mean[i:i+output_time_steps] = tf.reshape(mean_out, [-1])
-        upper_1sigma[i:i+output_time_steps] = tf.reshape(upper_1sigma_out, [-1])
-        lower_1sigma[i:i+output_time_steps] = tf.reshape(lower_1sigma_out, [-1])
+    mean = np.full(xx_scaled.shape[1] + output_time_steps, np.nan)
+    upper_1sigma = np.full(xx_scaled.shape[1] + output_time_steps, np.nan)
+    lower_1sigma = np.full(xx_scaled.shape[1] + output_time_steps, np.nan)
 
-  
-        if save_series:
-            fig, ax = plt.subplots(1, 1, figsize=(20, 6))
-            fig.subplots_adjust(wspace=0., hspace=0.2)
-            
-            plot_data(ax, output_dir, ticker, validation_date, output_time_steps, df, 
-                      mean, upper_1sigma, lower_1sigma)
-            
-            fig.savefig(output_dir+'pred_'+ticker+'_timestep'+str(i)+'.png', 
-                        format='png', dpi=300, bbox_inches = 'tight')
-            plt.close(fig)
-                
-        # Calculate the progress percentage
-        progress = np.int32((i - input_time_steps) / total_iterations * 100)
-                    
-        # Print the progress bar
-        sys.stdout.write("\rProgress: [{}{}] {:}%".format(
-                "=" * progress, " " * 0, progress)
-            )
-            #sys.stdout.flush()
+    input_sequence = []
     
-    print('prediction file name ',pred_file_name)
+    for i in range(input_time_steps, xx_scaled.shape[1]):
+        input_sequence.append(xx_scaled[0,i-input_time_steps:i,:])
+    
+    input_sequence = np.array(input_sequence)
+
+    mean_sequence, std_sequence = nll_predict(tf.convert_to_tensor(input_sequence))
+    upper_1sigma_sequence = mean_sequence + std_sequence
+    lower_1sigma_sequence = mean_sequence - std_sequence
+        
+    mean_sequence = mean_sequence * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
+    upper_1sigma_sequence = upper_1sigma_sequence * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]
+    lower_1sigma_sequence = lower_1sigma_sequence * (scaler.data_max_[0] - scaler.data_min_[0]) + scaler.data_min_[0]   
+    
+    for i in range(mean_sequence.shape[0]): 
+        mean[i+input_time_steps] = mean_sequence[i,0]
+        upper_1sigma[i+input_time_steps] = upper_1sigma_sequence[i,0]
+        lower_1sigma[i+input_time_steps] = lower_1sigma_sequence[i,0]
+        
+    # Save the last sequence left
+    mean[-output_time_steps:] = mean_sequence[-1]
+    upper_1sigma[-output_time_steps:] = upper_1sigma_sequence[-1]
+    lower_1sigma[-output_time_steps:] = lower_1sigma_sequence[-1]
+    
+    
+    print()
+    print('prediction file name ', pred_file_name)
     
     with open(pred_file_name, 'wb') as f:
-            np.save(f, mean)
-            np.save(f, upper_1sigma)
-            np.save(f, lower_1sigma)
+        np.save(f, mean)
+        np.save(f, upper_1sigma)
+        np.save(f, lower_1sigma)
+    
+    with open(pred_sequence_file_name, 'wb') as f:
+        np.save(f, mean_sequence)
+        np.save(f, upper_1sigma_sequence)
+        np.save(f, lower_1sigma_sequence)
+            
+            
+
+    
