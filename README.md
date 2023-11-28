@@ -169,4 +169,6 @@ total time [min] =  67.62601785262426
 
 ## Train/validation losses assuming normal distribution at the output
 
-![losses](loss.jpg)
+![loss](https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/ad025ece-2ef3-44dd-a48c-19d8de318100)
+![pred](https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/6da637f0-a85a-4111-804a-6f92e8281021)
+
