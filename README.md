@@ -4,8 +4,8 @@ Stock market predictions and financial analyses provided by this code are for in
 ## Predictions including the last 120 days a extrapolation from the current trend
 
 
+https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/b2d51f27-61b2-494c-af6b-873667d89c1d
 
-https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/af2eabb2-8e28-4cd2-a293-d5bed3b94e12
 
 
 
