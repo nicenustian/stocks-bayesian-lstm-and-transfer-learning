@@ -3,7 +3,11 @@ Stock market predictions and financial analyses provided by this code are for in
 
 ## Predictions including the last 120 days a extrapolation from the current trend
 
-![predictions](pred.jpg)
+
+
+https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/af2eabb2-8e28-4cd2-a293-d5bed3b94e12
+
+
 
 # Stock market predictions using Bayesian LSTM networks
 
