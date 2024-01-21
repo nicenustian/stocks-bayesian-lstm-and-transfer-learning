@@ -53,7 +53,7 @@ def main():
     parser.add_argument("--output_time_steps", default="30")
     parser.add_argument("--batch_size", default="32")
     parser.add_argument("--lr", default="1e-4")
-    parser.add_argument("--download", action="store_true", default=False)
+    parser.add_argument("--download", action="store_true", default=True)
     parser.add_argument("--output_dir", default="tech_stocks_combined/")
     
     args = parser.parse_args()
