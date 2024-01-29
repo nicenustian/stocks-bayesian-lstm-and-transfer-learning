@@ -5,11 +5,9 @@ Stock market predictions and financial analyses provided by this code are for in
 
 https://github.com/nicenustian/stock-market-predictions-with-bayesian-lstm/assets/111900566/b2d51f27-61b2-494c-af6b-873667d89c1d
 
-
-
 # Stock market predictions using Bayesian LSTM networks
 
-The main idea behind this repo is to predict stock market up to several weeks in advance using daily trends. It combines differents stock from a one sector into one combined model. This serves as a starting point to train each stock indivudually. End results are far better that predictions from a single stock.
+The main idea behind this repo is to predict stock market up to several weeks in advance using daily trends. It combines differents stock from a one sector. By using transfer learning and fine tune to make final predictions for a given stock.  End results are far better that predictions from a single stock.
 
 # Usage all options
 
